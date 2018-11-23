@@ -80,6 +80,8 @@ $config = array(
 <small>in `url` var, put your *application link*.</small>
 
 After this step, the application has configured perfectly, do not forget to enable apache and mysql server.
+
+# Screenshots
  
 
 
