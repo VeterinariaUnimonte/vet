@@ -6,7 +6,7 @@ In this work, our group make the process of partially developing a tool that wil
 - `PHP` *_essential_*
 	- version: `>=7.0` (recommended)
 	-  extension`pdo_mysql` required
-  - Is Recommendable enable `shell_exec`
+  - Is recommendable enable `shell_exec`
   
 - `MySQL` *_essential_*
 	- version `>=5.6` (recommended)
