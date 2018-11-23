@@ -82,6 +82,26 @@ $config = array(
 After this step, the application has configured perfectly, do not forget to enable apache and mysql server.
 
 # Screenshots
+
+<img src="https://i.imgur.com/82cXESR.png" alt="Agendamento">
+
+<img src="https://i.imgur.com/zmit1Zr.png" alt="Cliente registration">
+
+<img src="https://i.imgur.com/sdF6ksp.png" alt="Animal registration">
+
+<img src="https://i.imgur.com/tnXGciR.png" alt="Calendário">
+
+<img src="https://i.imgur.com/nFmh7AV.png" alt="Agendamento">
+
+View all screenshots on <a href="https://imgur.com/a/E6djmNv">Imgur</a>.
+
+
+
+# Publication
+If you use this project and settings from this repository, please cite the following paper:
+
+_Thiago Cassimiro de Melo Oliveira, Humberto Rocha Guimarões, Henrique Kozlov Souza, Gabriel Ruiz Guimarães Melito, Valdir Santos Júnior, Gabriel Lopes Souza, Victor Silverio de Souza Junior, Maria Helena da Silva Araújo, João Victor Nunes dos Santos, Marcos Vínícius Assunção F. Oliveira_. Veterinary Management System [<a href="https://github.com/VeterinariaUnimonte/vet">https://github.com/VeterinariaUnimonte/vet</a>], University Sao Judas - Campus UNIMONTE 2018.
+
  
 
 
