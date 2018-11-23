@@ -100,7 +100,7 @@ View all screenshots on <a href="https://imgur.com/a/E6djmNv">Imgur</a>.
 # Publication
 If you use this project and settings from this repository, please cite the following paper:
 
-_Thiago Cassimiro de Melo Oliveira, Humberto Rocha Guimarões, Henrique Kozlov Souza, Gabriel Ruiz Guimarães Melito, Valdir Santos Júnior, Gabriel Lopes Souza, Victor Silverio de Souza Junior, Maria Helena da Silva Araújo, João Victor Nunes dos Santos, Marcos Vínícius Assunção F. Oliveira_. Veterinary Management System [<a href="https://github.com/VeterinariaUnimonte/vet">https://github.com/VeterinariaUnimonte/vet</a>], University Sao Judas - Campus UNIMONTE 2018.
+_Thiago Cassimiro de Melo Oliveira, Humberto Rocha Guimarões, Henrique Kozlov Souza, Gabriel Ruiz Guimarães Melito, Valdir Santos Júnior, Gabriel Lopes Souza, Victor Silverio de Souza Junior, Maria Helena da Silva Araújo, João Victor Nunes dos Santos, Marcos Vínícius Assunção F. Oliveira_. Veterinary Management System [<a href="https://github.com/VeterinariaUnimonte/vet">https://github.com/VeterinariaUnimonte/vet</a>], Sao Judas University - Campus UNIMONTE, 2018.
 
  
 
