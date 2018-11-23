@@ -12,7 +12,7 @@ In this work, our group make the process of partially developing a tool that wil
 	- version `>=5.6` (recommended)
   
 - `Composer` *_essential_*
-	- Version `>=1.2` (recommended)
+	- version `>=1.2` (recommended)
 	- extensions `mbstring` and `dom` required
 
 	 <small>*Composer to install the dependencies needed to run*...</small>
