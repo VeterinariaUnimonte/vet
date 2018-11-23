@@ -318,8 +318,8 @@ if (!isset($_GET['f'])) {
               <input type="text" class="form-control" id="RG" name="RG" placeholder="Ex: 999.999.999" data-inputmask="'mask': '99.999.999-9'">
             </div>
             <div class="form-group">
-              <label for="cep">CEP <span style="color: red;">*</span></label>
-              <input type="text" class="form-control" id="CEP" name="cep" placeholder="Ex: 99999-999" data-inputmask="'mask': '99999-999'">
+              <label for="CEP">CEP <span style="color: red;">*</span></label>
+              <input type="text" class="form-control" id="CEP" name="CEP" placeholder="Ex: 99999-999" data-inputmask="'mask': '99999-999'">
             </div>
             <div class="form-group">
               <div class="row">
