@@ -218,7 +218,7 @@ if (!isset($_GET['f'])) {
               </div>
               <div class="form-group">
                 <label for="EMAIL">Email <span style="color: red;">*</span></label>
-                <input type="email" class="form-control" id="EMAIL" name="EMAIL" placeholder="Ex: seuemail@victornaweb.com" value="<?php echo $cliente_data['EMAIL']; ?>">
+                <input type="email" class="form-control" id="EMAIL" name="EMAIL" placeholder="Ex: seuemail@teste.com" value="<?php echo $cliente_data['EMAIL']; ?>">
               </div>
               <br>
               <h3>Informações do Animal</h3>
@@ -350,7 +350,7 @@ if (!isset($_GET['f'])) {
               </div>
               <div class="form-group">
                 <label for="EMAIL">Email <span style="color: red;">*</span></label>
-                <input type="email" class="form-control" id="EMAIL" name="EMAIL" placeholder="Ex: seuemail@victornaweb.com">
+                <input type="email" class="form-control" id="EMAIL" name="EMAIL" placeholder="Ex: seuemail@teste.com">
               </div>
               <br>
               <h3>Informações do Animal</h3>
