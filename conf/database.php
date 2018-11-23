@@ -2,19 +2,13 @@
 $conf = array(
         // ####### CONFIGURAÇÃO DO BANCO DE DADOS #######
         // IP ou dominío do servidor
-        "server" => "localhost", 
-        // Porta do banco de dados
-        "server_port" => "3361",  
+        "server" => "localhost",   
         // Nome do banco de dados
-        "db_name" => "BD_Veterinaria",
+        "db_name" => "bd_veterinaria",
         // Usuário do banco de dados
         "db_user" => "root",  
         // Senha do usuário do banco de dados
-        "db_password" => "vertrigo",
-
-        "db_charset" => "utf8",
-        // Tipo do banco de dados
-        "db_type" => "mysql"
+        "db_password" => "root",
 ); 
 
 ?>
