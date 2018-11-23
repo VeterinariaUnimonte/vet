@@ -56,9 +56,31 @@ Navigate to the apache folder where the project files are via terminal/cmd and t
 After it, two folders named `vendor` and `components` are generated containing all the necessary dependencies.
 
 ## Third step, configure MYSQL
-Create a new database in your mysql server named `bd_veterinaria` and upload the sql file which is located in `db/mariadb-mysql/BD_Veterinaria.sql` in the same
+Create a new database in your mysql server named `bd_veterinaria` and upload the sql file which is located in `db/mariadb-mysql/BD_Veterinaria.sql` in the same.
 
 ## Four step, integrate PHP with MYSQL
+Access `conf/database.php` and put your mysql configurations.
+<pre>
+$conf = array(
+        "server" => "localhost",   
+        "db_name" => "bd_veterinaria",
+        "db_user" => "root",  
+        "db_password" => "root",
+); 
+</pre>
+
+## Five step, configure the navigation
+Access `conf/navigation.php` and edit the information to your liking.
+<pre>
+$config = array(
+        "name" => "CMV - Veterinaria Unimonte",
+        "url" => "http://localhost/vet"
+); 
+</pre>
+<small>in `url` var, put your *application link*.</small>
+
+After this step, the application has configured perfectly, do not forget to enable apache.
+ 
 
 
 
