@@ -39,7 +39,7 @@ In this work, our group make the process of partially developing a tool that wil
 ##### Fast installation (if you use ubuntu/debian)
 <pre>sudo apt-get install composer</pre>
 
-##### Normal Instalation
+##### Normal Installation
 
 <pre>php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '93b54496392c062774670ac18b134c3b3a95e5a5e5c8f1a9f115f203b75bf9a129d5daa8ba6a13e2cc8a1da0806388a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
