@@ -1,8 +1,7 @@
 # About
 In this work, our group make the process of partially developing a tool that will add benefits such as agility, integrity and modernization to the Veterinary Clinic - Sao Judas. A real project, for a real client, using knowledge acquired through the course of Systems Analysis and Development, based on database fundamentals and web development, using as tools, Visual Studio Code, SQL Server/MYSQL, and the Apache XAAMP or similar. The current scenario is manual and requires time and physical resources, as well as storage space. The proposed tool will automate the scheduling of consultations, examinations and surgeries of the Sao Judas's Veterinary Hospital, Unimonte Campus, allowing the professionals involved, effective control and better care to the animals.
 
-# Installation
-## Prerequisites
+# Prerequisites
 
 - `PHP` *_essential_*
 	- version: `>=7.0` (recommended)
@@ -31,6 +30,36 @@ In this work, our group make the process of partially developing a tool that wil
 	- Version `^1.10`
 - `Fullcalendar`
 	- Version `^3.9`
+
+# Installation
+
+## First step, install composer
+### On Linux
+
+##### Fast installation (if you use ubuntu/debian)
+<pre>sudo apt-get install composer</pre>
+
+##### Normal Instalation
+
+<pre>php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '93b54496392c062774670ac18b134c3b3a95e5a5e5c8f1a9f115f203b75bf9a129d5daa8ba6a13e2cc8a1da0806388a8') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"</pre>
+
+### On Windows
+<a href="https://getcomposer.org/doc/00-intro.md#installation-windows" target="_blank">https://getcomposer.org/doc/00-intro.md#installation-windows</a>
+
+## Second step, get dependencies via composer
+Navigate to the apache folder where the project files are via terminal/cmd and type:
+<pre>composer install --no-dev</pre>
+
+After it, two folders named `vendor` and `components` are generated containing all the necessary dependencies.
+
+
+
+
+	
+
   
   
   
