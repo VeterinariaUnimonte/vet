@@ -1,0 +1,32 @@
+{
+    "name": "VeterinariaUnimonte/VetSystem",
+    "description": "Vet System build with PHP, MYSQL, JQUERY and BOOTSTRAP.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Thiago Cassimiro",
+            "email": "thiago.cassimiro171@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "VeterinariaUnimonte\\": "classes"
+      }
+    },
+    "require": {
+        "php": ">=7",
+        "ext-pdo": "*",
+        "components/jquery": "^3.3",
+        "components/bootstrap": "^4",
+        "robinherbots/jquery.inputmask": "^3", 
+        "fortawesome/font-awesome": "^4.7", 
+        "datatables/datatables": "^1.10", 
+        "fullcalendar/fullcalendar": "^3.9"
+    },
+    "config": {
+        "vendor-dir": "vendor",
+        "optimize-autoloader": true,
+        "disable-tls": true,
+        "secure-http": false
+    }
+}
