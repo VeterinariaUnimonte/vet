@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: 21-Nov-2018 às 18:02
--- Versão do servidor: 5.7.22
--- PHP Version: 7.1.20
+-- Host: 127.0.0.1
+-- Generation Time: 23-Nov-2018 às 23:42
+-- Versão do servidor: 10.1.36-MariaDB
+-- versão do PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,18 +34,15 @@ CREATE TABLE `tab_agendamento` (
   `COD_FUNCIONARIO` int(13) NOT NULL,
   `COD_CLIENTE` int(13) NOT NULL,
   `DATA` date NOT NULL,
-  `HORA` time NOT NULL,
-  `CADASTRO` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `HORA` time NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `tab_agendamento`
 --
 
-INSERT INTO `tab_agendamento` (`COD_AGENDAMENTO`, `COD_PROCEDIMENTO`, `COD_FUNCIONARIO`, `COD_CLIENTE`, `DATA`, `HORA`, `CADASTRO`) VALUES
-(1, 1, 11, 19, '2018-11-21', '09:30:00', '2018-11-21 17:05:30'),
-(2, 9, 11, 19, '2018-11-21', '14:00:00', '2018-11-21 17:05:30'),
-(7, 1, 11, 19, '2018-12-11', '15:00:00', '2018-11-21 17:05:30');
+INSERT INTO `tab_agendamento` (`COD_AGENDAMENTO`, `COD_PROCEDIMENTO`, `COD_FUNCIONARIO`, `COD_CLIENTE`, `DATA`, `HORA`) VALUES
+(17, 1, 11, 20, '2018-11-23', '14:00:00');
 
 -- --------------------------------------------------------
 
@@ -73,7 +70,8 @@ CREATE TABLE `tab_cliente` (
 --
 
 INSERT INTO `tab_cliente` (`COD_CLIENTE`, `NOME_CLIENTE`, `CPF`, `RG`, `CEP`, `ENDERECO`, `BAIRRO`, `CIDADE`, `UF`, `TELEFONE`, `EMAIL`, `CADASTRO`) VALUES
-(19, 'Fulanox', '453.453.453-45', '43.423.423-4', '69083-240', 'Rua dos Girassóis 513', 'Aleixo', 'Manaus', 'AM', '(21) 31243-4234', 'victornaweb@victor.com', '2018-11-18 19:00:26');
+(19, 'João Victor Nunes dos Santos', '453.453.453-45', '43.423.423-4', '11451-320', 'Avenida Luís Gama 513', 'Sítio Paecara (Vicente de Carvalho)', 'Guarujá', 'SP', '(13) 99799-2234', 'jvnsantos@outlook.com', '2018-11-18 19:00:26'),
+(20, 'Victor Silverio de Souza Junior', '469.884.798-21', '54.011.011-5', '11075-410', 'Rua Pará 02', 'Campo Grande', 'Santos', 'SP', '(13) 99648-7140', 'vsilverio97@gmail.com', '2018-11-23 22:28:22');
 
 -- --------------------------------------------------------
 
@@ -96,8 +94,8 @@ CREATE TABLE `tab_disponibilidade` (
 --
 
 INSERT INTO `tab_disponibilidade` (`COD_DISPONIBILIDADE`, `COD_FUNCIONARIO`, `DIAS_SEMANA`, `HORARIOS`, `DURACAO`, `ATENDER_FERIADOS`, `EXCECOES`) VALUES
-(3, 11, '1, 2, 3, 4, 5', '09:00-12:00, 13:00-17:00', 30, 1, '05/08/2018, 07/12/2018'),
-(4, 12, '1, 2, 3, 4, 5', '09:00-12:00, 13:00-17:00', 30, 0, '05/08/2018');
+(3, 11, '1, 2, 3, 4, 5', '09:00-12:00, 13:00-17:00', 60, 0, '05/08/2018, 07/12/2018'),
+(4, 12, '1, 2, 3, 4, 5', '08:00-12:00, 13:00-17:00', 30, 0, '12/09/2018');
 
 -- --------------------------------------------------------
 
@@ -115,10 +113,8 @@ CREATE TABLE `tab_especialidade` (
 --
 
 INSERT INTO `tab_especialidade` (`COD_ESPECIALIDADE`, `DESCRICAO`) VALUES
-(1, 'especialidade_1'),
-(2, 'especialidade_2'),
-(3, 'especialidade_3'),
-(4, 'especialidade_4');
+(1, 'Veterinário'),
+(2, 'Veterinário Cirurgião');
 
 -- --------------------------------------------------------
 
@@ -143,8 +139,8 @@ CREATE TABLE `tab_funcionario` (
 --
 
 INSERT INTO `tab_funcionario` (`COD_FUNCIONARIO`, `COD_ESPECIALIDADE`, `NOME_FUNCIONARIO`, `CPF`, `RG`, `TELEFONE`, `TIPO`, `EMAIL`, `CADASTRO`) VALUES
-(11, 1, 'meccc', '634.234.252-34', '42.342.342-3', '(13) 43324-2342', 'tipomedico', 'seuemail@teste.com', '2018-11-20 20:11:01'),
-(12, 1, 'mcteve', '231.252.323-42', '23.413.423-4', '(31) 23123-1131', 'tipomedico', 'jaoharry@jao.com', '2018-11-20 20:12:12');
+(11, 2, 'Valéria', '462.738.951-87', '52.345.559-9', '(13) 98154-6472', 'Cirurgião Gastro', 'valeria_vet@unimonte.br', '2018-11-20 20:11:01'),
+(12, 1, 'Valdir Santos Junior', '234.765.439-81', '48.765.893-4', '(13) 99854-6635', 'Clinico Geral', 'valdir_vet@unimonte.br', '2018-11-20 20:12:12');
 
 -- --------------------------------------------------------
 
@@ -168,7 +164,8 @@ CREATE TABLE `tab_pet` (
 --
 
 INSERT INTO `tab_pet` (`COD_PET`, `COD_CLIENTE`, `NOME_PET`, `IDADE`, `SEXO`, `TIPO`, `PELAGEM`, `RACA`) VALUES
-(33, 19, 'rexx2', '3.00', 'f', 'cachorro', 'pelagem', 'shitzuuu');
+(35, 20, 'Amumu', '0.07', 'm', 'Cachorro', 'Branco', 'Golden Retriever'),
+(36, 19, 'Catucha', '7.00', 'f', 'Cachorro', 'Preto', 'Labrador');
 
 -- --------------------------------------------------------
 
@@ -190,8 +187,9 @@ CREATE TABLE `tab_procedimento` (
 --
 
 INSERT INTO `tab_procedimento` (`COD_PROCEDIMENTO`, `COD_TIPO_PROCEDIMENTO`, `DESCRICAO`, `JEJUM`, `VALOR_PROCEDIMENTO`, `OBSERVACAO`) VALUES
-(1, 1, 'descricao_procedimento_1', 'Sim', '80.00', 'Nenhuma'),
-(9, 2, 'descricao_procedimento_2', 'Sim', '345345.45', 'descript');
+(1, 1, 'Raio-x', 'Sim', '80.00', 'Exame de imagem raio-x.'),
+(9, 2, 'Gastro Intestnal', 'Sim', '250.00', 'Cirurgia gastro intestinal.'),
+(10, 3, 'Geral', 'Não', '80.00', 'Consulta geral.');
 
 -- --------------------------------------------------------
 
@@ -209,8 +207,9 @@ CREATE TABLE `tab_tipo_procedimento` (
 --
 
 INSERT INTO `tab_tipo_procedimento` (`COD_TIPO_PROCEDIMENTO`, `DESCRICAO`) VALUES
-(1, 'descricao_tipo_procedimento_1'),
-(2, 'descricao_tipo_procedimento_2');
+(1, 'Imagem'),
+(2, 'Cirurgia'),
+(3, 'Consulta');
 
 --
 -- Indexes for dumped tables
@@ -287,13 +286,13 @@ ALTER TABLE `tab_tipo_procedimento`
 -- AUTO_INCREMENT for table `tab_agendamento`
 --
 ALTER TABLE `tab_agendamento`
-  MODIFY `COD_AGENDAMENTO` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `COD_AGENDAMENTO` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tab_cliente`
 --
 ALTER TABLE `tab_cliente`
-  MODIFY `COD_CLIENTE` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `COD_CLIENTE` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tab_disponibilidade`
@@ -305,7 +304,7 @@ ALTER TABLE `tab_disponibilidade`
 -- AUTO_INCREMENT for table `tab_especialidade`
 --
 ALTER TABLE `tab_especialidade`
-  MODIFY `COD_ESPECIALIDADE` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `COD_ESPECIALIDADE` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tab_funcionario`
@@ -317,19 +316,19 @@ ALTER TABLE `tab_funcionario`
 -- AUTO_INCREMENT for table `tab_pet`
 --
 ALTER TABLE `tab_pet`
-  MODIFY `COD_PET` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `COD_PET` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tab_procedimento`
 --
 ALTER TABLE `tab_procedimento`
-  MODIFY `COD_PROCEDIMENTO` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `COD_PROCEDIMENTO` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tab_tipo_procedimento`
 --
 ALTER TABLE `tab_tipo_procedimento`
-  MODIFY `COD_TIPO_PROCEDIMENTO` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `COD_TIPO_PROCEDIMENTO` int(13) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
