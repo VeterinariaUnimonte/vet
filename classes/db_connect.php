@@ -39,14 +39,14 @@ class db_connect {
 
  
     
-        $this->tbl_pet = "TAB_PET";
-        $this->tbl_cliente = "TAB_CLIENTE";
-        $this->tbl_funcionario = "TAB_FUNCIONARIO";
-        $this->tbl_procedimento = "TAB_PROCEDIMENTO";
-        $this->tbl_disponibilidade = "TAB_DISPONIBILIDADE";
-        $this->tbl_especialidade = "TAB_ESPECIALIDADE";
-        $this->tbl_agendamento = "TAB_AGENDAMENTO";
-        $this->tbl_tipo_procedimento = "TAB_TIPO_PROCEDIMENTO";
+        $this->tbl_pet = "tab_pet";
+        $this->tbl_cliente = "tab_cliente";
+        $this->tbl_funcionario = "tab_funcionario";
+        $this->tbl_procedimento = "tab_procedimento";
+        $this->tbl_disponibilidade = "tab_disponibilidade";
+        $this->tbl_especialidade = "tab_especialidade";
+        $this->tbl_agendamento = "tab_agendamento";
+        $this->tbl_tipo_procedimento = "tab_tipo_procedimento";
 
 
         if (file_exists('./conf/database.php')) {
