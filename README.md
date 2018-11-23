@@ -17,7 +17,7 @@ In this work, our group make the process of partially developing a tool that wil
 
 	 <small>*Composer to install the dependencies needed to run*...</small>
    
-## Components that composer loaded
+## Components that composer load
 - `jQuery`
 	- Version `^3.3`
 - `Bootstrap`
