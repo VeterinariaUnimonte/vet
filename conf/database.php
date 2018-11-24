@@ -8,7 +8,7 @@ $conf = array(
         // Usuário do banco de dados
         "db_user" => "root",  
         // Senha do usuário do banco de dados
-        "db_password" => "root",
+        "db_password" => "root"
 ); 
 
 ?>
