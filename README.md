@@ -65,7 +65,7 @@ $conf = array(
         "server" => "localhost",   
         "db_name" => "bd_veterinaria",
         "db_user" => "root",  
-        "db_password" => "root",
+        "db_password" => "root"
 ); 
 </pre>
 
