@@ -57,6 +57,7 @@ class Agendamento extends db_connect{
             return $result;
         }
 
+
        $result['html'] = "";  
        if (substr_count($disponibilidade_funcionario['HORARIOS'], ", ") > 0) {
        $work_times = explode(", ", $disponibilidade_funcionario['HORARIOS']);
@@ -82,8 +83,6 @@ class Agendamento extends db_connect{
             $result['html'] .= '<option value="'.$form_value.'">'.$form_text.'</option>\n';
             //} 
         }
-        } else {
-            $result['html'] .= '<option value="'.$form_value.'">'.$form_text.'</option>\n';
         }
 
             $start_time = strtotime('+'.$disponibilidade_funcionario['DURACAO'].' minutes', $start_time);
@@ -109,13 +108,10 @@ class Agendamento extends db_connect{
 
             if ($horarios_reservados['status'] == true) {
                 $exist = array_count_values(array_column($horarios_reservados, 'HORA'));
-                if  ($exist[$form_value] == 0) {
+                if (!isset($exist[$form_value])) {
                 $result['html'] .= '<option value="'.$form_value.'">'.$form_text.'</option>\n';
                 } 
-            } else {
-                $result['html'] .= '<option value="'.$form_value.'">'.$form_text.'</option>\n';
-            }
-
+            } 
             $start_time = strtotime('+'.$disponibilidade_funcionario['DURACAO'].' minutes', $start_time);
 
         }
@@ -150,15 +146,10 @@ class Agendamento extends db_connect{
             $stmt->bindParam(":code", $cod_funcionario, \PDO::PARAM_INT);
             $stmt->bindParam(":DIA", $date);
             $stmt->execute();
-            $totale = $stmt->fetchColumn();
 
             $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-            if ($totale == 0) {
-                $result['status'] = false;
-            } else {
-                $result['status'] = true;
-            }
+            $result['status'] = true;
 
         } catch (\PDOExcepton $e) {
             $result['status'] = false;
