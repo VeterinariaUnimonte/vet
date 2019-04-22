@@ -71,7 +71,7 @@ $conf = array(
         "db_password" => "root"
 ); 
 </pre>
-If you use SQL SERVER, replace `classes/db_connect_sqlserver.php` in `classes/db_connect.php`
+If you're use SQL SERVER, replace `classes/db_connect_sqlserver.php` into `classes/db_connect.php`
 
 ## Five step, configure the navigation
 Access `conf/navigation.php` and edit the information to your liking.
