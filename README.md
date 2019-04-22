@@ -55,10 +55,13 @@ Navigate to the apache folder where the project files are via terminal/cmd and t
 
 After it, two folders named `vendor` and `components` are generated containing all the necessary dependencies.
 
-## Third step, configure MYSQL
+## Third step (for MYSQL)
 Create a new database in your mysql server named `bd_veterinaria` and upload the sql file which is located in `db/mariadb-mysql/BD_Veterinaria.sql` in the same.
 
-## Four step, integrate PHP with MYSQL
+## Third step (for SQL SERVER)
+Create a new database in your sql server named `bd_veterinaria` and run the sql script which is located in `db/mssql/BD_Veterinaria.sql` in the same.
+
+## Four step, integrate PHP
 Access `conf/database.php` and put your mysql configurations.
 <pre>
 $conf = array(
@@ -68,6 +71,7 @@ $conf = array(
         "db_password" => "root"
 ); 
 </pre>
+If you use SQL SERVER, replace `classes/db_connect_sqlserver.php` in `classes/db_connect.php`
 
 ## Five step, configure the navigation
 Access `conf/navigation.php` and edit the information to your liking.
