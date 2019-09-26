@@ -22,6 +22,10 @@
             <li class="nav-item<?php if ($page_id == 5) echo " active"; ?>">
               <a class="nav-link" href="<?php echo $app->url; ?>/procedimento.php">Procedimentos</a>
             </li>
+                
+            <li class="nav-item<?php if ($page_id == 6) echo " active"; ?>">
+              <a class="nav-link" href="<?php echo $app->url; ?>/controle.php">Controle Estoque</a>
+            </li>
           </ul>
         </div>
       </div>
