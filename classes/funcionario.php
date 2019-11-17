@@ -3,7 +3,7 @@
 namespace VeterinariaUnimonte;
 
 
-class Funcionario extends db_connect{
+class Funcionario extends DbConnect{
 
 
     // Função estatica para adicionar funcionários
@@ -16,9 +16,9 @@ class Funcionario extends db_connect{
         // STMT = STATEMENT
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_funcionario = $db->tbl_funcionario;
 
             $stmt_check = $db->conn->prepare("SELECT COUNT(*) FROM $tbl_funcionario WHERE CPF = :cpf");
@@ -79,9 +79,9 @@ class Funcionario extends db_connect{
         // STMT = STATEMENT -> DECLARANDO CONEXÃO COM O BANCO DE DADOS E INSERÇÃO DE DADOS
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_funcionario = $db->tbl_funcionario;
 
 
@@ -123,9 +123,9 @@ class Funcionario extends db_connect{
     public static function obter_funcionario(int $funcionario_cod): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_funcionario = $db->tbl_funcionario;
 
         try {
@@ -155,9 +155,9 @@ class Funcionario extends db_connect{
     public static function obter_funcionarios(): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_funcionario = $db->tbl_funcionario;
 
         try {
@@ -188,9 +188,9 @@ class Funcionario extends db_connect{
     // Params: $funcionario_code (INT) código do funcionário
     public static function deletar_funcionario(int $funcionario_code): array{
         
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_funcionario = $db->tbl_funcionario;
 
 

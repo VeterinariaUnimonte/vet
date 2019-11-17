@@ -1,10 +1,7 @@
 <?php
 namespace VeterinariaUnimonte;
-class db_connect {
-    private $db_name;
-    private $host;
-    private $username;
-    private $password;
+class DbConnectSqlServer {
+
     public $conn;
     public $tbl_pet;
     public $tbl_cliente;

@@ -3,7 +3,7 @@
 namespace VeterinariaUnimonte;
 
 
-class Cliente extends db_connect{
+class Cliente extends DbConnect{
 
 
     // Função estatica para adicionar animais
@@ -16,9 +16,9 @@ class Cliente extends db_connect{
         // STMT = STATEMENT
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_cliente = $db->tbl_cliente;
 
 
@@ -87,9 +87,9 @@ class Cliente extends db_connect{
         // STMT = STATEMENT -> DECLARANDO CONEXÃO COM O BANCO DE DADOS E INSERÇÃO DE DADOS
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_cliente = $db->tbl_cliente;
 
 
@@ -136,9 +136,9 @@ class Cliente extends db_connect{
     public static function obter_cliente(int $cliente_cod): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_cliente = $db->tbl_cliente;
 
         try {
@@ -170,9 +170,9 @@ class Cliente extends db_connect{
     public static function obter_clientes(): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_cliente = $db->tbl_cliente;
 
         try {
@@ -206,9 +206,9 @@ class Cliente extends db_connect{
     // Params: $cliente_code (INT) código do cliente
     public static function deletar_cliente(int $cliente_code): array{
         
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_cliente = $db->tbl_cliente;
 
 

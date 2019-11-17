@@ -68,9 +68,9 @@ $app = new VeterinariaUnimonte\App;
 
               <option disabled selected>Selecione...</option> 
               <?php
-              foreach (VeterinariaUnimonte\Tipo_procedimento::obter_tipo_procedimentos() as $tipo_procedimento) {
-                if (isset($tipo_procedimento['COD_TIPO_PROCEDIMENTO'])) {
-                  echo '<option value="'.$tipo_procedimento['COD_TIPO_PROCEDIMENTO'].'">'.$tipo_procedimento['DESCRICAO'].'</option>\n';
+              foreach (VeterinariaUnimonte\TipoProcedimento::obter_tipo_procedimentos() as $TipoProcedimento) {
+                if (isset($TipoProcedimento['COD_TIPO_PROCEDIMENTO'])) {
+                  echo '<option value="'.$TipoProcedimento['COD_TIPO_PROCEDIMENTO'].'">'.$TipoProcedimento['DESCRICAO'].'</option>\n';
                 }
               }
 ?>

@@ -3,17 +3,17 @@
 namespace VeterinariaUnimonte;
 
 
-class Tipo_procedimento extends db_connect{
+class TipoProcedimento extends DbConnect{
 
 
-    public static function obter_tipo_procedimento(int $cod_tipo_procedimento): string {
+    public static function obter_tipo_procedimento(int $COD_TIPO_PROCEDIMENTO): string {
 
-        $db = new db_connect;
+        $db = new DbConnect;
         $tbl_tipo_procedimento = $db->tbl_tipo_procedimento;
 
         try {
             $stmt = $db->conn->prepare("SELECT DESCRICAO FROM $tbl_tipo_procedimento WHERE COD_TIPO_PROCEDIMENTO = :code LIMIT 1");
-            $stmt->bindParam(":code", $cod_tipo_procedimento, \PDO::PARAM_INT);
+            $stmt->bindParam(":code", $COD_TIPO_PROCEDIMENTO, \PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(\PDO::FETCH_ASSOC);
             return $result['DESCRICAO'];
@@ -28,7 +28,7 @@ class Tipo_procedimento extends db_connect{
 
     public static function obter_tipo_procedimentos(): array {
 
-        $db = new db_connect;
+        $db = new DbConnect;
         $tbl_tipo_procedimento = $db->tbl_tipo_procedimento;
 
         try {

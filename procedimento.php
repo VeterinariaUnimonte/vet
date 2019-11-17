@@ -61,7 +61,7 @@ if (!isset($_GET['f'])) {
             if (isset($procedimento['COD_PROCEDIMENTO'])) {
             echo '<tr>
                 <td>'.$procedimento['DESCRICAO'].'</td>
-                <td>'.VeterinariaUnimonte\Tipo_procedimento::obter_tipo_procedimento($procedimento['COD_TIPO_PROCEDIMENTO']).'</td>
+                <td>'.VeterinariaUnimonte\TipoProcedimento::obter_tipo_procedimento($procedimento['COD_TIPO_PROCEDIMENTO']).'</td>
                 <td>'.$procedimento['JEJUM'].'</td>
                 <td>R$ '.number_format($procedimento['VALOR_PROCEDIMENTO'], 2, ',', '.').'</td>
                 <td>'.$procedimento['OBSERVACAO'].'</td>
@@ -173,13 +173,13 @@ if (!isset($_GET['f'])) {
               <label for="COD_TIPO_PROCEDIMENTO">Tipo de Procedimento <span style="color: red;">*</span></label>
               <select class="form-control" id="COD_TIPO_PROCEDIMENTO" name="COD_TIPO_PROCEDIMENTO"> <option disabled>Selecione...</option> 
               <?php
-              foreach (VeterinariaUnimonte\Tipo_procedimento::obter_tipo_procedimentos() as $tipo_procedimento) { 
-              if (isset($tipo_procedimento['COD_TIPO_PROCEDIMENTO'])) {
-              echo '<option value="'.$tipo_procedimento['COD_TIPO_PROCEDIMENTO'].'"';
-              if ($procedimento_data['COD_TIPO_PROCEDIMENTO'] == $tipo_procedimento['COD_TIPO_PROCEDIMENTO']) {
+              foreach (VeterinariaUnimonte\TipoProcedimento::obter_tipo_procedimentos() as $TipoProcedimento) { 
+              if (isset($TipoProcedimento['COD_TIPO_PROCEDIMENTO'])) {
+              echo '<option value="'.$TipoProcedimento['COD_TIPO_PROCEDIMENTO'].'"';
+              if ($procedimento_data['COD_TIPO_PROCEDIMENTO'] == $TipoProcedimento['COD_TIPO_PROCEDIMENTO']) {
                 echo ' selected';
               }
-              echo '>'.$tipo_procedimento['DESCRICAO'].'</option>\n';
+              echo '>'.$TipoProcedimento['DESCRICAO'].'</option>\n';
               }
               }
               ?>
@@ -260,9 +260,9 @@ if (!isset($_GET['f'])) {
               <label for="COD_TIPO_PROCEDIMENTO">Tipo de Procedimento <span style="color: red;">*</span></label>
               <select class="form-control" id="COD_TIPO_PROCEDIMENTO" name="COD_TIPO_PROCEDIMENTO"> <option disabled selected>Selecione...</option> 
               <?php
-              foreach (VeterinariaUnimonte\Tipo_procedimento::obter_tipo_procedimentos() as $tipo_procedimento) { 
-              if (isset($tipo_procedimento['COD_TIPO_PROCEDIMENTO'])) {
-              echo '<option value="'.$tipo_procedimento['COD_TIPO_PROCEDIMENTO'].'">'.$tipo_procedimento['DESCRICAO'].'</option>\n';
+              foreach (VeterinariaUnimonte\TipoProcedimento::obter_tipo_procedimentos() as $TipoProcedimento) { 
+              if (isset($TipoProcedimento['COD_TIPO_PROCEDIMENTO'])) {
+              echo '<option value="'.$TipoProcedimento['COD_TIPO_PROCEDIMENTO'].'">'.$TipoProcedimento['DESCRICAO'].'</option>\n';
               }
               }
               ?>

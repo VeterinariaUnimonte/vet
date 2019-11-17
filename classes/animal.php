@@ -3,7 +3,7 @@
 namespace VeterinariaUnimonte;
 
 
-class Animal extends db_connect{
+class Animal extends DbConnect{
 
 
     // Função estatica para adicionar animais
@@ -16,9 +16,9 @@ class Animal extends db_connect{
         // STMT = STATEMENT
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_pet = $db->tbl_pet;
 
 
@@ -63,9 +63,9 @@ class Animal extends db_connect{
         // STMT = STATEMENT -> DECLARANDO CONEXÃO COM O BANCO DE DADOS E INSERÇÃO DE DADOS
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_pet = $db->tbl_pet;
 
 
@@ -107,9 +107,9 @@ class Animal extends db_connect{
     public static function obter_animais(int $cliente_cod): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_pet = $db->tbl_pet;
 
         try {
@@ -143,9 +143,9 @@ class Animal extends db_connect{
     public static function obter_animal(int $cliente_cod, int $pet_id): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_pet = $db->tbl_pet;
 
         try {
@@ -180,9 +180,9 @@ class Animal extends db_connect{
     // Params: $cliente_code (INT) código do cliente, $pet_id (INT) código do pet
     public static function deletar_animal(int $cliente_code, int $pet_id): array{
         
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_pet = $db->tbl_pet;
 
 
@@ -207,9 +207,9 @@ class Animal extends db_connect{
 
     public static function deletar_animal_cliente(int $cliente_code): array{
         
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_pet = $db->tbl_pet;
 
 
@@ -235,9 +235,9 @@ class Animal extends db_connect{
     // Params: $cliente_code (INT) código do cliente
     public static function total_de_animais(int $cliente_code): int{
         
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_pet = $db->tbl_pet;
 
         try {

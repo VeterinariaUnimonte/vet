@@ -3,15 +3,8 @@
 namespace VeterinariaUnimonte;
 
 
-class db_connect {
+class DbConnect {
 
-    private $db_name;
-
-    private $host;
-
-    private $username;
-
-    private $password;
 
     public $conn;
 
@@ -30,7 +23,9 @@ class db_connect {
 
     public $tbl_agendamento;
 
-    public $tbl_tipo_procedimento;
+    public $tbl_exame_fisico;
+
+    public $tbl_ficha_atendimento;
 
 
 
@@ -47,6 +42,9 @@ class db_connect {
         $this->tbl_especialidade = "tab_especialidade";
         $this->tbl_agendamento = "tab_agendamento";
         $this->tbl_tipo_procedimento = "tab_tipo_procedimento";
+
+        $this->tbl_exame_fisico = "tab_exame_fisico";
+        $this->tbl_ficha_atendimento = "tab_ficha_atendimento";
 
 
         if (file_exists('./conf/database.php')) {

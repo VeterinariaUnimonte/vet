@@ -3,7 +3,7 @@
 namespace VeterinariaUnimonte;
 
 
-class Disponibilidade extends db_connect{
+class Disponibilidade extends DbConnect{
 
 
     // Função estatica para adicionar funcionários
@@ -16,9 +16,9 @@ class Disponibilidade extends db_connect{
         // STMT = STATEMENT
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_disponibilidade = $db->tbl_disponibilidade;
 
 
@@ -71,9 +71,9 @@ class Disponibilidade extends db_connect{
         // STMT = STATEMENT -> DECLARANDO CONEXÃO COM O BANCO DE DADOS E INSERÇÃO DE DADOS
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_disponibilidade = $db->tbl_disponibilidade;
 
 
@@ -122,9 +122,9 @@ class Disponibilidade extends db_connect{
     // Params: $funcionario_cod (INT) código do funcionário
     public static function verificar_disponibilidade(int $funcionario_cod, array $disponibilidade_data): bool {
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_disponibilidade = $db->tbl_disponibilidade;
 
         try {
@@ -162,9 +162,9 @@ class Disponibilidade extends db_connect{
     public static function obter_disponibilidade(int $funcionario_cod): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_disponibilidade = $db->tbl_disponibilidade;
 
         try {
@@ -199,9 +199,9 @@ class Disponibilidade extends db_connect{
     // Params: $funcionario_code (INT) código do funcionário
     public static function deletar_disponibilidade(int $disponibilidade_cod, int $funcionario_cod): array{
         
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_disponibilidade = $db->tbl_disponibilidade;
 
 

@@ -3,7 +3,7 @@
 namespace VeterinariaUnimonte;
 
 
-class Agendamento extends db_connect{
+class Agendamento extends DbConnect{
 
 
 
@@ -138,7 +138,7 @@ class Agendamento extends db_connect{
 
     public static function horarios_nao_disponiveis(int $cod_funcionario, string $date): array {
 
-        $db = new db_connect;
+        $db = new DbConnect;
         $tbl_agendamento = $db->tbl_agendamento;
 
         try {
@@ -163,7 +163,7 @@ class Agendamento extends db_connect{
      
     public static function obter_agendamentos(int $cod_funcionario): array {
 
-        $db = new db_connect;
+        $db = new DbConnect;
         $tbl_agendamento = $db->tbl_agendamento;
 
         try {
@@ -187,7 +187,7 @@ class Agendamento extends db_connect{
 
     public static function obter_agendamento(int $cod_agendamento): array {
 
-        $db = new db_connect;
+        $db = new DbConnect;
         $tbl_agendamento = $db->tbl_agendamento;
 
         try {
@@ -220,9 +220,9 @@ class Agendamento extends db_connect{
         // STMT = STATEMENT
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_agendamento = $db->tbl_agendamento;
 
             $data_split = explode("/", $agendamento_data['DATA']);

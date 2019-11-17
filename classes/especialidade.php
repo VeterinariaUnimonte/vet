@@ -3,12 +3,12 @@
 namespace VeterinariaUnimonte;
 
 
-class Especialidade extends db_connect{
+class Especialidade extends DbConnect{
 
 
     public static function obter_especialidade(int $cod_especialidade): string {
 
-        $db = new db_connect;
+        $db = new DbConnect;
         $tbl_especialidade = $db->tbl_especialidade;
 
         try {
@@ -28,7 +28,7 @@ class Especialidade extends db_connect{
 
     public static function obter_especialidades(): array {
 
-        $db = new db_connect;
+        $db = new DbConnect;
         $tbl_especialidade = $db->tbl_especialidade;
 
         try {

@@ -3,7 +3,7 @@
 namespace VeterinariaUnimonte;
 
 
-class Procedimento extends db_connect{
+class Procedimento extends DbConnect{
 
 
     // Função estatica para adicionar funcionários
@@ -16,9 +16,9 @@ class Procedimento extends db_connect{
         // STMT = STATEMENT
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_procedimento = $db->tbl_procedimento;
 
             // Iniciando STATEMENT
@@ -58,9 +58,9 @@ class Procedimento extends db_connect{
 
 
         try {
-            // Chamando a classe db_connect
-            $db = new db_connect;
-            // Puxando a tabela pet da classe db_connect;
+            // Chamando a classe DbConnect
+            $db = new DbConnect;
+            // Puxando a tabela pet da classe DbConnect;
             $tbl_procedimento = $db->tbl_procedimento;
 
 
@@ -104,9 +104,9 @@ class Procedimento extends db_connect{
     public static function obter_procedimento(int $procedimento_cod): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_procedimento = $db->tbl_procedimento;
 
         try {
@@ -133,18 +133,18 @@ class Procedimento extends db_connect{
     }
 
 
-    public static function obter_procedimentos_por_tipo(int $cod_tipo_procedimento): array {
+    public static function obter_procedimentos_por_tipo(int $COD_TIPO_PROCEDIMENTO): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_procedimento = $db->tbl_procedimento;
 
         try {
             // Realizando select puxando as informações do funcionário pelo id dele
-            $stmt = $db->conn->prepare("SELECT * FROM $tbl_procedimento WHERE COD_TIPO_PROCEDIMENTO = :cod_tipo_procedimento");
-            $stmt->bindParam(":cod_tipo_procedimento", $cod_tipo_procedimento, \PDO::PARAM_INT);
+            $stmt = $db->conn->prepare("SELECT * FROM $tbl_procedimento WHERE COD_TIPO_PROCEDIMENTO = :COD_TIPO_PROCEDIMENTO");
+            $stmt->bindParam(":COD_TIPO_PROCEDIMENTO", $COD_TIPO_PROCEDIMENTO, \PDO::PARAM_INT);
             // Enviando solicitação para o SQL
             $stmt->execute();
             // Puxando todos as informações do funcionário e colocando elas em um array
@@ -168,9 +168,9 @@ class Procedimento extends db_connect{
     public static function obter_procedimentos(): array {
 
 
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_procedimento = $db->tbl_procedimento;
 
         try {
@@ -198,9 +198,9 @@ class Procedimento extends db_connect{
 
     public static function deletar_procedimento(int $procedimento_cod): array{
         
-        // Chamando a classe db_connect
-        $db = new db_connect;
-        // Puxando a tabela pet da classe db_connect;
+        // Chamando a classe DbConnect
+        $db = new DbConnect;
+        // Puxando a tabela pet da classe DbConnect;
         $tbl_procedimento = $db->tbl_procedimento;
 
 

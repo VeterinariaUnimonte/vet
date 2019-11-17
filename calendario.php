@@ -94,11 +94,11 @@ require 'includes/header.php';
 
                 $cliente = VeterinariaUnimonte\Cliente::obter_cliente($agendamento['COD_CLIENTE']);
 
-                $tipo_procedimento = VeterinariaUnimonte\Tipo_procedimento::obter_tipo_procedimento($procedimento['COD_TIPO_PROCEDIMENTO']);
+                $TipoProcedimento = VeterinariaUnimonte\TipoProcedimento::obter_tipo_procedimento($procedimento['COD_TIPO_PROCEDIMENTO']);
                 echo " 
               {
                 id: '".$agendamento['COD_AGENDAMENTO']."',
-                title: '".$procedimento['DESCRICAO']." (".$tipo_procedimento.") - Cliente: ".$cliente['NOME_CLIENTE']."',
+                title: '".$procedimento['DESCRICAO']." (".$TipoProcedimento.") - Cliente: ".$cliente['NOME_CLIENTE']."',
                 start: '".$agendamento['DATA']."T".$agendamento['HORA']."',
                 end: '".$end_date."',
                 url: 'calendario.php?view=".$agendamento['COD_AGENDAMENTO']."'
@@ -148,15 +148,19 @@ require 'includes/header.php';
         $funcionario = VeterinariaUnimonte\Funcionario::obter_funcionario($agendamento['COD_FUNCIONARIO']);
 
         
-        $tipo_procedimento = VeterinariaUnimonte\Tipo_procedimento::obter_tipo_procedimento($procedimento['COD_TIPO_PROCEDIMENTO']);
+        $TipoProcedimento = VeterinariaUnimonte\TipoProcedimento::obter_tipo_procedimento($procedimento['COD_TIPO_PROCEDIMENTO']);
 
 
 
 ?>      
         <div class="container" style="margin-top:5%;">
                 <div class="jumbotron text-center"><h2><?php echo date("d/m/Y", strtotime($agendamento['DATA'])); ?></h2><p><b><?php echo $funcionario['NOME_FUNCIONARIO']; ?></b></p><?php echo substr($agendamento['HORA'], 0, -3); ?> - <?php echo $end_date; ?><p></b></p>
-            <p><a href="calendario.php?id=<?php echo $funcionario['COD_FUNCIONARIO']; ?>">&laquo; Retornar ao Calendário de <?php echo $funcionario['NOME_FUNCIONARIO']; ?></a></p></div>     
-          <table class="table table-striped table-bordered" style="width:100%">
+            <p><a href="calendario.php?id=<?php echo $funcionario['COD_FUNCIONARIO']; ?>">&laquo; Retornar ao Calendário de <?php echo $funcionario['NOME_FUNCIONARIO']; ?></a></p>
+          <br>
+          <a href="#" class="btn btn-primary btn-lg">Ficha de Atendimento</a>
+          <a href="#" class="btn btn-secondary btn-lg">Exame Físico</a>
+          </div>     
+            <table class="table table-striped table-bordered" style="width:100%">
               <tbody>
                   <tr>
                     <th>Cadastrado em</th>
@@ -186,7 +190,7 @@ require 'includes/header.php';
                       <td><?php echo $procedimento['DESCRICAO']; ?></td>
                   </tr>
                   <tr>    <th>Tipo de Procedimento</th>
-                  <td><?php echo $tipo_procedimento; ?></td>
+                  <td><?php echo $TipoProcedimento; ?></td>
                   </tr>
                 <tr>
                     <th>Valor</th>
