@@ -24,13 +24,7 @@
             </li>
                 
             <li class="nav-item<?php if ($page_id == 6) echo " active"; ?>">
-              <a class="nav-link" href="<?php echo $app->url; ?>/controle_estoque.php">Controle&nbsp;Estoque</a>
-            </li>
-            <li class="nav-item<?php if ($page_id == 7) echo " active"; ?>">
-              <a class="nav-link" href="<?php echo $app->url; ?>/exame_fisico.php">Exame&nbsp;Físico</a>
-            </li>
-            <li class="nav-item<?php if ($page_id == 8) echo " active"; ?>">
-              <a class="nav-link" href="<?php echo $app->url; ?>/ficha_atendimento.php">Ficha&nbsp;Atendimento</a>
+              <a class="nav-link" href="<?php echo $app->url; ?>/controle_consumo.php">Controle&nbsp;Consumo</a>
             </li>
           </ul>
         </div>

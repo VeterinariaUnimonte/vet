@@ -27,6 +27,8 @@ class DbConnect {
 
     public $tbl_ficha_atendimento;
 
+    public $tbl_controle_estoque;
+
 
 
 
@@ -45,6 +47,7 @@ class DbConnect {
 
         $this->tbl_exame_fisico = "tab_exame_fisico";
         $this->tbl_ficha_atendimento = "tab_ficha_atendimento";
+        $this->tbl_controque_consumo = "tab_controle_consumo";
 
 
         if (file_exists('./conf/database.php')) {

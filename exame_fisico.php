@@ -14,7 +14,7 @@ $app = new VeterinariaUnimonte\App;
 <body>
     <!-- Navegação -->
     <?php
-    $page_id = 7;
+    $page_id = 0;
     require 'includes/header.php';
     ?>
     <!-- Container -->
@@ -25,160 +25,85 @@ $app = new VeterinariaUnimonte\App;
                 <br>
 
                 <h1 class="text-center">Exame Fisico</h1>
-                <?php
-                                                ?>
                 <hr>
             </div>
 
             <div class="col-lg-12 text-center">
-            <p>Quarta-Feira 06/11/2019 22:44</p>
-        
+            <?php
 
+            if (!isset($_GET['add'])) {
+                echo "<p>Não é possível adicionar um exame físico para esse agendamento</p>";
+                die();
+            } else {
 
-            <div style="text-align: left;" class="form-group">
-          <label for="COD_CLIENTE">Cliente Agendado<span style="color: red;">*</span></label>
-          <select class="form-control" id="COD_CLIENTE" name="COD_CLIENTE" disabled> 
-           </select>
-        </div>
-
-            <div class="col-lg-12 text-center">
-                <p></p>
-
-            </div>
-
-            <!-- CONTEUDO -->
-
-            <div style="text-align: left;" class="form-group">
-
-                <table style="text-align: left; border-spacing: 5px;" class="" border="0">
-                    <tr>
-                        <td class="">Mucosas: </td>
-                        <td>
-                            <input class="form-control" type="text">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Hidratação: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Linfonodos: </td>
-                        <td>
-                            <input class="form-control" type="text">
-                        </td>
-                    </tr>
-                      
-                    <tr>
-                        <td>Temperatura: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-                      
-                    <tr>
-                        <td>Palpação Abd.: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-                      
-                    <tr>
-                        <td>ACP: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-                      
-                    <tr>
-                        <td>Postura: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-                      
-                    <tr>
-                        <td>Consciência: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-                      
-                    <tr>
-                        <td>Obs Gerais: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>Exames Comp.: </td>
-                        <td>
-                            <input  class="form-control" type="text">
-                        </td>
-                    </tr>
-                    
-                    <tr>
-                        <td>Diagnostico </td>
-                        <td>
-                            <input placeholder="" size="70%" class="form-control" type="text">
-                        </td>
-                    </tr>
-                    
-
-            </div>
-        </div></table><br>
-            <!-- TABLE ABAIXO-->
- 
-
-                <div style="text-align: left;" class="form-group">
-                    <label>Tratamento: </label><br>
-
-                    <textarea name="" id="" cols="100%" rows="5"></textarea>
-                </div>
-
-                <div style="text-align: left;" class="form-group">
-                    <label>Prescrito: </label><br>
-
-                    <textarea name="" id="" cols="100%" rows="5"></textarea>
-                </div>
-
-            </div>
-            <!--Botão de Ficha Fisica -->
-            <div class="text-right">
-                <a class="btn btn-primary" style="pointer: cursor; color: white;"><i class="fa fa-plus"
-                        aria-hidden="true"></i> Salvar e retornar para Ficha de Atendimento</a>
-
-
-
-
-
-                <!--#Botão de Ficha Fisica -->
-            </div>
+                $agendamento = VeterinariaUnimonte\Agendamento::obter_agendamento($_GET['add']);
+                $cliente = VeterinariaUnimonte\Cliente::obter_cliente($agendamento['COD_CLIENTE']);
+            }
+            ?>
+            <h4><?php echo $cliente['NOME_CLIENTE']; ?> (<?php echo $cliente['EMAIL']; ?>)</h4>
+            <p><a href="calendario.php?view=<?php echo $_GET['add']; ?>">&laquo; Retornar as informações do agendamento</a></p>
             <hr>
-            <!-- Botão de Salvar os Dados-->
-            <div class="text-left">
-                <button type="submit" class="btn btn-large btn-success"><i class="fa fa-floppy-o"
-                        aria-hidden="true"></i>
-                    Salvar Dados</button>
-            </div>
-            <div id="error_message" style="margin-top: 2%;"></div>
+            <div class="col-lg-12 text-left">
+            <form method="POST" action="calendario.php?view=<?php echo $_GET['add']; ?>&action=add_exame_fisico">
+                <div class="form-group">
+                <label for="nome">Mucosas</label>
+                <input type="text" class="form-control" id="MUCOSAS" name="MUCOSAS">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Hidratação</label>
+                        <input type="text" class="form-control" id="HIDRATACAO" name="HIDRATACAO">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Linfonodos</label>
+                        <input type="text" class="form-control" id="LINFONODOS" name="LINFONODOS">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Temperatura</label>
+                        <input type="text" class="form-control" id="TEMPERATURA" name="TEMPERATURA">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Palpação Abd</label>
+                        <input type="text" class="form-control" id="PALPACAO_ABD" name="PALPACAO_ABD">
+                </div>
+                <div class="form-group">
+                        <label for="nome">ACP</label>
+                        <input type="text" class="form-control" id="ACP" name="ACP">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Postura</label>
+                        <input type="text" class="form-control" id="POSTURA" name="POSTURA">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Consciência</label>
+                        <input type="text" class="form-control" id="CONSCIENCIA" name="CONSCIENCIA">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Obs Gerais</label>
+                        <input type="text" class="form-control" id="OBS_GERAIS" name="OBS_GERAIS">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Exames Comp</label>
+                        <input type="text" class="form-control" id="EXAMES_COMP" name="EXAMES_COMP">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Diagnostico</label>
+                        <input type="text" class="form-control" id="DIAGNOSTICO" name="DIAGNOSTICO">
+                </div>
+                <div class="form-group">
+                        <label for="nome">Tratamento</label>
+                        <textarea class="form-control" id="TRATAMENTO" name="TRATAMENTO" placeholder="Descreva um tratamento..."></textarea>
+                </div>
+                <div class="form-group">
+                        <label for="nome">Prescrito</label>
+                        <textarea class="form-control" id="PRESCRITO" name="PRESCRITO" placeholder="Descreva um prescritivo..."></textarea>
+                </div>
+                <hr>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-large btn-success"><i class="fa fa-floppy-o" aria-hidden="true"></i> Salvar Dados</button>
+                </div>
+            </form>    
+            <br><br>
         </div>
-        </form>
-
-
-
-
-
-
-
-
-
-    <div id="error_message" style="margin-top: 2%;"></div>
-    </div>
-    </form>
     </div>
     <br>
     <br>

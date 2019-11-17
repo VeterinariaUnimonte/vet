@@ -32,6 +32,7 @@ require 'includes/header.php';
             <br>
             <br>
         <?php
+
         if (isset($_GET['id'])) {
         $funcionario = VeterinariaUnimonte\Funcionario::obter_funcionario($_GET['id']);
         }
@@ -125,12 +126,35 @@ require 'includes/header.php';
       <?php
       } else {
 
+      
 
       $agendamento = VeterinariaUnimonte\Agendamento::obter_agendamento($_GET['view']);
+
+      if (isset($_GET['action'])) {
+        echo '<br><br>';
+        if ($_GET['action'] == 'add_exame_fisico') {
+          $output = VeterinariaUnimonte\ExameFisico::adicionar_exame_fisico($_POST, $agendamento['COD_AGENDAMENTO']);
+          echo '<br><br>';
+        } else if ($_GET['action'] == "add_ficha_atendimento") {
+          $output = VeterinariaUnimonte\FichaAtendimento::adicionar_ficha_atendimento($_POST, $agendamento['COD_AGENDAMENTO']);
+        }
+        switch ($output['status']){
+          case true:
+            echo '<div class="alert alert-success" role="alert"><i class="fa fa-check"></i> ' . $output['message'] . '</div>';
+            break;
+          case false:
+            echo '<div class="alert alert-danger" role="alert"><i class="fa fa-times"></i> <strong>Error!</strong> ' . $output['message'] . '</div>';
+            break;
+        }
+      }
 
       if (isset($agendamento['COD_AGENDAMENTO'])) {
 
 
+
+        $exame_fisico = VeterinariaUnimonte\ExameFisico::obter_exame_fisico($agendamento['COD_AGENDAMENTO']);
+
+        $ficha_atendimento = VeterinariaUnimonte\FichaAtendimento::obter_ficha_atendimento($agendamento['COD_AGENDAMENTO']);
 
         $disponibilidade_funcionario = VeterinariaUnimonte\Disponibilidade::obter_disponibilidade($agendamento['COD_FUNCIONARIO']);
 
@@ -157,9 +181,48 @@ require 'includes/header.php';
                 <div class="jumbotron text-center"><h2><?php echo date("d/m/Y", strtotime($agendamento['DATA'])); ?></h2><p><b><?php echo $funcionario['NOME_FUNCIONARIO']; ?></b></p><?php echo substr($agendamento['HORA'], 0, -3); ?> - <?php echo $end_date; ?><p></b></p>
             <p><a href="calendario.php?id=<?php echo $funcionario['COD_FUNCIONARIO']; ?>">&laquo; Retornar ao Calendário de <?php echo $funcionario['NOME_FUNCIONARIO']; ?></a></p>
           <br>
-          <a href="#" class="btn btn-primary btn-lg">Ficha de Atendimento</a>
-          <a href="#" class="btn btn-secondary btn-lg">Exame Físico</a>
-          </div>     
+          <?php
+          if (!$ficha_atendimento['status']) {
+            echo '<a href="ficha_atendimento.php?add='.$agendamento['COD_AGENDAMENTO'].'" class="btn btn-primary btn-lg">Ficha de Atendimento</a> ';
+          }
+          if (!$exame_fisico['status']) {
+            echo '<a href="exame_fisico.php?add='.$agendamento['COD_AGENDAMENTO'].'" class="btn btn-secondary btn-lg">Exame Físico</a>';
+          }
+          ?>
+          </div> 
+          <?php
+          if ($exame_fisico['status']) {
+            echo '<h2>Exame Físico</h2>';
+            echo '<table class="table table-striped table-bordered" style="width:100%">
+            <tbody>';
+            foreach($exame_fisico as $key => $value) {
+              if ($key != "status" && $key != "COD_AGENDAMENTO") {
+                $new_key = ucwords(strtolower(str_replace("_", " ", $key)));
+                echo '<tr><th>'.$new_key.'</th><td>'.$value.'</td></tr>';
+              }
+            }
+            echo '</tbody>
+            </table>';
+          }
+          ?>
+
+
+          <?php
+          if ($ficha_atendimento['status']) {
+            echo '<h2>Ficha de Atendimento</h2>';
+            echo '<table class="table table-striped table-bordered" style="width:100%">
+            <tbody>';
+            foreach($ficha_atendimento as $key => $value) {
+              if ($key != "status" && $key != "COD_AGENDAMENTO") {
+                $new_key = ucwords(strtolower(str_replace("_", " ", $key)));
+                echo '<tr><th>'.$new_key.'</th><td>'.$value.'</td></tr>';
+              }
+            }
+            echo '</tbody>
+            </table>';
+          }
+          ?>
+          <h2>Informações</h2>
             <table class="table table-striped table-bordered" style="width:100%">
               <tbody>
                   <tr>

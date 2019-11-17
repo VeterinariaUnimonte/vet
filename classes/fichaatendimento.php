@@ -38,8 +38,14 @@ class FichaAtendimento extends DbConnect{
             $stmt = $db->conn->prepare("SELECT * FROM $tbl_ficha_atendimento WHERE COD_AGENDAMENTO = :code LIMIT 1");
             $stmt->bindParam(":code", $cod_agendamento, \PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch(\PDO::FETCH_ASSOC);
-            $result['status'] = true;
+
+            if ($stmt->rowCount() > 0) {
+                $result = $stmt->fetch(\PDO::FETCH_ASSOC);
+                $result['status'] = true;
+            } else {
+                $result['status'] = false;
+                $result['message'] = "Nenhuma ficha de atendimento encontrada para esse agendamento";
+            }
         } catch (\PDOExcepton $e) {
             $result['status'] = false;
             $result['message'] = "Error: " . $e->getMessage();
